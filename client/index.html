@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="betweenVisits">
+  <head>
+
+    <base href="/">
+
+    <title>Between Visits</title>
+    <meta name="description" content="We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report.">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- build:css app.css -->
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/pickadate/lib/themes/default.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/themes/default.date.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/themes/default.time.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/css/app.css">
+    <!-- endinject -->
+
+    <!-- endbuild -->
+
+  </head>
+  <body>
+
+    <div>Between Visits</div>
+
+    <nav-bar></nav-bar>
+
+    <div ng-view></div>
+
+    <script src="socket.io/socket.io.js"></script>
+
+    <!-- build:js app.js -->
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-hoverIntent/jquery.hoverIntent.js"></script>
+    <script src="bower_components/velocity/velocity.js"></script>
+    <script src="bower_components/velocity/velocity.ui.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="bower_components/scroll-reveal/dist/scrollReveal.js"></script>
+    <script src="bower_components/colors/js/colors.js"></script>
+    <script src="bower_components/pickadate/lib/picker.js"></script>
+    <script src="bower_components/pickadate/lib/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/picker.time.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <script src="directives/nav-bar/nav-bar.directive.js"></script>
+    <script src="services/auth/auth.js"></script>
+    <script src="services/socket/socket.mock.js"></script>
+    <script src="services/socket/socket.service.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/login/login.controller.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/signup/signup.controller.js"></script>
+    <script src="views/signup/signup.js"></script>
+    <!-- endinject -->
+
+    <!-- endbuild -->
+
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+
+  </body>
+</html>
