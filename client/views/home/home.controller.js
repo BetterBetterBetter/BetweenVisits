@@ -22,6 +22,7 @@ function resizeDiv()
       $( $INTROimg )
         .css({"width": "auto" })
         .children()
+.children()
         .css({"width": "auto" })
         .css({"height": minusTen + "px"});
       var imgWidth1 = $( $LEFTdoor ).width();
@@ -38,6 +39,7 @@ function resizeDiv()
         .css({"height": 'auto'})
         .css({"width": vpw - 16 + "px"})
         .children()
+.children()
         .css({"height": 'auto'})
         .css({"width": imgWidthMax + "px"});
       };
