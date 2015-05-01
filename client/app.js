@@ -6,7 +6,8 @@ angular.module('betweenVisits', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
-  'btford.socket-io'
+  'btford.socket-io',
+  'impress'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 

@@ -1,23 +1,42 @@
+@import "../directives/impress/impress";
+@import "../directives/d3/d3";
+@import "../views/information/information";
+
 body {
   font-family: sans-serif;
   background-color: #DAF3F9;
   z-index: -9;
+  overflow: hidden;
+
+}
+
+div#Title{
+	text-align: center;
+  font-size: 10pt;
+	color: hsla(231, 95%, 45%, 0.81);
 }
 
   div#introContainer{
-	position: fixed;
-	top: 15px;
+	position: relative;
+	top: -18%;
     letter-spacing: -18px;
     width: 100%;
     height: 100%;
+
+    padding: 0px;
+    margin: 0px;
   }
 
-  #introContainer > img{
+  #introContainer > *{
+    position: relative;
+  }
+
+  #introContainer > a > img{
  	position: relative;
-  width: auto;
+  width: 49.5%;
   z-index: 9 ;
   
-  height: 777px;
+  height: auto;
   }	
 
   img#leftDoor{
@@ -29,12 +48,12 @@ body {
   	cursor: pointer;
   }
 
-  p#patient{ top: 50%; left: 5%; position: fixed;}
-  p#physician{ top: 50%; left: 90%; position: fixed;}
+  p#patient{ top: 50%; left: 5%; position: absolute;}
+  p#physician{ top: 50%; left: 90%; position: absolute;}
 
 
 span#Patients {
-	position: fixed;
+	position: absolute;
 	text-align: right;
 	font-size: 4em;
 	top: 50%;	
@@ -42,7 +61,7 @@ span#Patients {
 }
 
 span#Doctors {
-	position: fixed;
+	position: absolute;
 	text-align: left;
 	font-size: 4em;
 	top: 50%;

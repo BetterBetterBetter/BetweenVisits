@@ -1,9 +1,17 @@
 'use strict';
 
 angular.module('betweenVisits')
-  .controller('HomeCtrl', function () {
+  .controller('HomeCtrl', function ($timeout) {
 
     var vm = this;
+
+    $timeout(function(){
+      angular.element(document.getElementById('impresshook')).scope().$emit('initImpress');
+      resizeDiv();
+  },1);
+
+
+resizeDiv();
 
 var $INTROimg = $("#introContainer");
 var $LEFTdoor = $("#leftDoor");
@@ -13,36 +21,63 @@ var $BODY = $("body");
 function resizeDiv() 
 {//height == x axis, width == y axis
 
-      var $INTROimg = $("#introContainer");
       var vpw = $(window).width();
       var vph = $(window).height();
       var asp = ( vph / vpw );
       var area = ( vph * vpw );
-      var minusTen = (vph - 10);
+
+/*
+      var $INTROimg = $("#introContainer");
+      var $LEFTdoor = $("#leftDoor");
+      var imgContH = $($INTROimg).height();
+      var imgH = $($LEFTdoor).height();
+      if (imgH > imgContH) {
+        $(" $INTROimg ")
+          .find('*')
+          .css('height', imgContH);
+      } else (imgH < imgContH) { 
+        $(" $INTROimg ")
+          .find('*')
+          .css('height', imgContH);
+      }
+*/
+      var $BODY = $("body");
+      var bodyH = $($BODY).height();
+      var bodyW = $($BODY).width();
+
+      var minusTen = (bodyH - 10);
       $( $INTROimg )
         .css({"width": "auto" })
         .children()
-.children()
-        .css({"width": "auto" })
+        .children()
+        .css({"width": bodyW })
         .css({"height": minusTen + "px"});
       var imgWidth1 = $( $LEFTdoor ).width();
       var imgWidth2 = $( $RIGHTdoor ).width();
       var imgWidth = imgWidth1 + imgWidth2;
-      var imgLeft = ((vpw - imgWidth)/2);
-      var imgWidthMax = ((vpw / 2) - 16);
+      var imgLeft = ((bodyW - imgWidth)/2);
+      var imgWidthMax = ((bodyW / 2) - 16);
       $( $INTROimg )
         .css({"left": imgLeft + "px"});
-      if (imgWidth > vpw) {        
+      if (imgWidth > bodyW) {        
       	$( $INTROimg )
         .css({"left": 8 + "px"})
-        .css({"top": -imgLeft + "px"})
         .css({"height": 'auto'})
-        .css({"width": vpw - 16 + "px"})
+        .css({"width": bodyW - 16 + "px"})
         .children()
-.children()
+        .children()
         .css({"height": 'auto'})
         .css({"width": imgWidthMax + "px"});
       };
+
+    //impress.js slides
+    var $view = $(' #impresshook ');
+    var $slides = $(' .slide ');
+      var slideH = bodyH;
+      var slideW = bodyW ;
+    $( $slides )
+        .css("height", slideH)
+        .css("width", slideW);
 
 }
 
@@ -69,7 +104,6 @@ imagesLoaded("#introContainer", function(){
 
 
 function lux (event) {
-  console.log("this is Lux");
   $( $BODY )
   .velocity('stop')
   .velocity({
@@ -94,7 +128,6 @@ function lux (event) {
 }
 
 function luxFiat (event) {
-  console.log("this is Fiat");
   $( $BODY )
   .velocity('stop')
   .velocity({
@@ -120,7 +153,6 @@ function luxFiat (event) {
 }
 
 function luxFit (event) {
-  console.log("this is Fit");
   $( $BODY )
   .velocity('stop')
   .velocity({
@@ -131,7 +163,7 @@ function luxFit (event) {
   $( event.target )
   .velocity('stop')
   .velocity({
-    p: {rotateY: 45,
+    p: {rotateY: -25,
         scale: 1}, 
     o: {duration: 3333, queue: false}
     });

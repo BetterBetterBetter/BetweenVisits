@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: bespoke', function () {
+describe('Directive: impress', function () {
 
   beforeEach(module('betweenVisits', 'templates'));
 
@@ -8,7 +8,7 @@ describe('Directive: bespoke', function () {
 
   beforeEach(inject(function ($compile, $rootScope) {
     scope = $rootScope.$new();
-    element = angular.element('<bespoke></bespoke>');
+    element = angular.element('<impress></impress>');
     element = $compile(element)(scope);
     scope.$apply();
   }));

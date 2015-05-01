@@ -1,0 +1,105 @@
+
+body {
+    font-family:'PT Sans', sans-serif;
+    background: rgb(215, 215, 215);
+    pointer-events: auto;
+    height:100%;
+}
+
+h1{
+    font-size: 3em;
+}
+
+/* #impresshook{
+    pointer-events: auto;
+} */
+
+.step {
+	text-align: center;
+    position: relative;
+    padding: 40px;
+    margin: 20px auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.slide {
+	-webkit-transition: opacity .777s ease-out;
+    display: block;
+    background-color: white;
+    color: hsla(156, 98%, 59%, 0.69);
+    opacity: 0.555;
+    line-height: 4em;
+    pointer-events:none;
+    border-radius: 50%;
+}
+
+.slide > * {
+	opacity: 0;
+      -webkit-transition: opacity .777s ease-out;
+}
+
+.slide.active > * {
+	opacity: 1;
+      -webkit-transition: opacity .777s ease-in;	
+}
+
+.slide.active{
+	opacity: 1;
+}
+
+.step.active{
+    opacity: 1;
+    pointer-events:auto;
+    -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+}
+
+
+
+.slide:before, .slide:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+
+}
+.slide:before {
+  top: -33px;
+  left: -33px;
+  right: -33px;
+  bottom: -33px;
+  z-index: -2;
+  opacity: 0;
+
+}
+
+.active.slide:before{
+
+  opacity: 1;
+
+-webkit-transition: opacity 7.77s ease 1s;
+   -webkit-transition-delay: 1s;
+   transition-delay: 1s;
+
+background: #ffffff;
+background: -moz-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, hsla(0,0%,100%,1)), color-stop(50%, hsla(52,100%,50%,1)), color-stop(100%, hsla(52,100%,50%,0)));
+background: -webkit-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+background: -o-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+background: -ms-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+background: radial-gradient(ellipse at center, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffdd00', GradientType=1 );
+
+}
+
+.slide:after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
