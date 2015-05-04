@@ -3,7 +3,7 @@
 angular.module('betweenVisits')
   .directive('navBar', function () {
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: 'directives/nav-bar/nav-bar.html'
     };
   });

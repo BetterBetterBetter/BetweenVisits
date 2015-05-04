@@ -26,52 +26,31 @@ function resizeDiv()
       var asp = ( vph / vpw );
       var area = ( vph * vpw );
 
-/*
+
       var $INTROimg = $("#introContainer");
       var $LEFTdoor = $("#leftDoor");
       var imgContH = $($INTROimg).height();
       var imgH = $($LEFTdoor).height();
-      if (imgH > imgContH) {
-        $(" $INTROimg ")
+      var imgContW = $($INTROimg).width();
+      var imgW = $($LEFTdoor).width();
+
+
+
+      if (asp < 1.13) {
+        $( $INTROimg )
           .find('*')
-          .css('height', imgContH);
-      } else (imgH < imgContH) { 
-        $(" $INTROimg ")
+          .css('height', imgContH);        
+      } else {
+        $( $INTROimg )
           .find('*')
-          .css('height', imgContH);
+          .css('height', imgContH*2.1 - imgContH*asp );
       }
-*/
+      
       var $BODY = $("body");
       var bodyH = $($BODY).height();
       var bodyW = $($BODY).width();
 
-      var minusTen = (bodyH - 10);
-      $( $INTROimg )
-        .css({"width": "auto" })
-        .children()
-        .children()
-        .css({"width": bodyW })
-        .css({"height": minusTen + "px"});
-      var imgWidth1 = $( $LEFTdoor ).width();
-      var imgWidth2 = $( $RIGHTdoor ).width();
-      var imgWidth = imgWidth1 + imgWidth2;
-      var imgLeft = ((bodyW - imgWidth)/2);
-      var imgWidthMax = ((bodyW / 2) - 16);
-      $( $INTROimg )
-        .css({"left": imgLeft + "px"});
-      if (imgWidth > bodyW) {        
-      	$( $INTROimg )
-        .css({"left": 8 + "px"})
-        .css({"height": 'auto'})
-        .css({"width": bodyW - 16 + "px"})
-        .children()
-        .children()
-        .css({"height": 'auto'})
-        .css({"width": imgWidthMax + "px"});
-      };
-
     //impress.js slides
-    var $view = $(' #impresshook ');
     var $slides = $(' .slide ');
       var slideH = bodyH;
       var slideW = bodyW ;

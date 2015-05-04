@@ -1,19 +1,34 @@
-<nav>
-  <ul>
-    <li>
-      <a href="/">home</a>
-    </li>
-    <li ng-if="!Auth.isLogged()">
-      <a href="/signup">signup</a>
-    </li>
-    <li ng-if="!Auth.isLogged()">
-      <a href="/login">login</a>
-    </li>
-    <li ng-if="Auth.isLogged()">
-      <a href="" ng-click="Auth.logout()">logout</a>
-    </li>
-    <li>
-      <pre>logged in: {{ Auth.isLogged() }}</pre>
-    </li>
-  </ul>
+
+
+<nav class=" noselect">
+  
+  <input type="checkbox" checked id="button" />
+  <label for="button" onclick>|||</label>
+
+    <ul class=" ">
+      <a href="/">
+        <li class=" ">
+          home
+        </li>
+      </a>
+      <a href="/signup">
+        <li  class=" " ng-if="!Auth.isLogged()">
+          signup
+        </li>
+      </a>
+      <a href="/login">
+        <li  class=" " ng-if="!Auth.isLogged()">
+          login
+        </li>
+      </a>
+      <a href="" ng-click="Auth.logout()">
+        <li  class=" " ng-if="Auth.isLogged()">
+          logout
+        </li>
+      </a>
+      <li  class=" ">
+        <pre>logged in: {{ Auth.isLogged() }}</pre>
+      </li>
+    </ul>
+
 </nav>
