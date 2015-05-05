@@ -8,6 +8,7 @@ angular.module('betweenVisits')
     $timeout(function(){
       angular.element(document.getElementById('impresshook')).scope().$emit('initImpress');
       resizeDiv();
+      $("#introContainer").css( "opacity", "0" );
   },1);
 
 
@@ -68,11 +69,14 @@ resizeDiv();
 
 window.addEventListener('resize', resizeDiv);
 
-imagesLoaded("body", resizeDiv());
-resizeDiv();
-
-imagesLoaded("#introContainer", function(){
-  resizeDiv();
+//Hides the doors until loaded, then fades in & removes element.style
+$("#introContainer").imagesLoaded()
+  .always( function( instance ) {
+    resizeDiv();
+    $("#introContainer").velocity("transition.fadeIn", 1111);
+    $timeout(function(){
+      $("#introContainer").css( "opacity", "" );
+    }, 1112);
   });
 
 
@@ -81,47 +85,79 @@ imagesLoaded("#introContainer", function(){
  $( $RIGHTdoor ).hoverIntent( luxFiat, lux );
  $( $BODY ).hoverIntent( lux );		 
 
-
+//body hover
 function lux (event) {
-  $( $BODY )
-  .velocity('stop')
-  .velocity({
-    p: {backgroundColorAlpha: 1, 
-      backgroundColor: "#DAF3F9"}, 
-    o: {duration: 1111, queue: false}
-    });
-  $( $LEFTdoor )
-  .velocity('stop')
-  .velocity({
-    p: {rotateY: 0,
-        scale: 1}, 
-    o: {duration: 1111, queue: false}
-    });
-  $( $RIGHTdoor )
+  if( $( $LEFTdoor ).hasClass("clicked") === false && $( $RIGHTdoor ).hasClass("clicked") === false )  {
+    $( $BODY )
+    .velocity('stop')
+    .velocity({
+      p: {backgroundColorAlpha: 1, 
+        backgroundColor: "#DAF3F9"}, 
+      o: {duration: 1111, queue: false}
+      });
+    $( $LEFTdoor )
     .velocity('stop')
     .velocity({
       p: {rotateY: 0,
           scale: 1}, 
       o: {duration: 1111, queue: false}
       });
+    $( $RIGHTdoor )
+      .velocity('stop')
+      .velocity({
+        p: {rotateY: 0,
+            scale: 1}, 
+        o: {duration: 1111, queue: false}
+        });
+  }
 }
 
+//RightDoor hover
 function luxFiat (event) {
-  $( $BODY )
-  .velocity('stop')
-  .velocity({
-    p: {backgroundColorAlpha: 0, 
-      backgroundColor: "#FFFFFF"}, 
-    o: {duration: 3333, queue: false}
-    });
-  $( event.target )
-  .velocity('stop')
-  .velocity({
-    p: {rotateY: 45,
-        scale: 1}, 
-    o: {duration: 3333, queue: false}
-    });
-  $( event.target )
+  if( $(event.target).hasClass("clicked") === false ) {
+    $( $BODY )
+    .velocity('stop')
+    .velocity({
+      p: {backgroundColorAlpha: 0, 
+        backgroundColor: "#FFFFFF"}, 
+      o: {duration: 3333, queue: false}
+      });
+    $( event.target )
+    .velocity('stop')
+    .velocity({
+      p: {rotateY: 45,
+          scale: 1}, 
+      o: {duration: 3333, queue: false}
+      });
+    $( event.target )
+      .siblings()
+      .velocity('stop')
+      .velocity({
+        p: {rotateY: 0,
+            scale: 1}, 
+        o: {duration: 3333, queue: false}
+        });
+  }
+}
+
+//LeftDoor hover
+function luxFit (event) {
+  if( $(event.target).hasClass("clicked") === false ) {
+    $( $BODY )
+    .velocity('stop')
+    .velocity({
+      p: {backgroundColorAlpha: 1, 
+        backgroundColor: "#000000"}, 
+      o: {duration: 3333, queue: false}
+      });
+    $( event.target )
+    .velocity('stop')
+    .velocity({
+      p: {rotateY: -45,
+          scale: 1}, 
+      o: {duration: 3333, queue: false}
+      });
+    $( event.target )
     .siblings()
     .velocity('stop')
     .velocity({
@@ -129,33 +165,58 @@ function luxFiat (event) {
           scale: 1}, 
       o: {duration: 3333, queue: false}
       });
+  }
 }
 
-function luxFit (event) {
-  $( $BODY )
-  .velocity('stop')
-  .velocity({
-    p: {backgroundColorAlpha: 1, 
-      backgroundColor: "#000000"}, 
-    o: {duration: 3333, queue: false}
-    });
-  $( event.target )
-  .velocity('stop')
-  .velocity({
-    p: {rotateY: -25,
-        scale: 1}, 
-    o: {duration: 3333, queue: false}
-    });
-  $( event.target )
-  .siblings()
-  .velocity('stop')
-  .velocity({
-    p: {rotateY: 0,
-        scale: 1}, 
-    o: {duration: 3333, queue: false}
-    });
-}
+//Door click events
+////Doors swing open when clicked, passes through to next slide
+ $( $LEFTdoor ).click( leftOpen );
+ $( $RIGHTdoor ).click( rightOpen );
 
+ function leftOpen (event) {
+    $( this )
+    .addClass("clicked")
+    .velocity('stop')
+    .velocity({
+      p: {rotateY: -90,
+          scale: 1}, 
+      o: {duration: 777, queue: false}
+      });
+
+    $timeout(function(){
+      $($LEFTdoor)
+      .removeClass("clicked")
+      .velocity('stop')
+      .velocity({
+        p: {rotateY: 0,
+          scale: 1}, 
+        o: {duration: 777, queue: false}
+      });
+      lux();
+    }, 778);
+ }
+ function rightOpen (event) {
+    $( this )
+    .addClass("clicked")
+    .velocity('stop')
+    .velocity({
+      p: {rotateY: 90,
+          scale: 1}, 
+      o: {duration: 777, queue: false}
+      });
+
+    $timeout(function(){
+      $($RIGHTdoor)
+      .removeClass("clicked")
+      .velocity('stop')
+      .velocity({
+        p: {rotateY: 0,
+          scale: 1}, 
+        o: {duration: 777, queue: false}
+      });
+      lux();
+    }, 778);
+ }
 
 
 

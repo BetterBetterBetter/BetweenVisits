@@ -8,22 +8,22 @@
     <ul class=" ">
       <a href="/">
         <li class=" ">
-          home
+          Home
         </li>
       </a>
       <a href="/signup">
         <li  class=" " ng-if="!Auth.isLogged()">
-          signup
+          Signup
         </li>
       </a>
       <a href="/login">
         <li  class=" " ng-if="!Auth.isLogged()">
-          login
+          Login
         </li>
       </a>
       <a href="" ng-click="Auth.logout()">
         <li  class=" " ng-if="Auth.isLogged()">
-          logout
+          Logout
         </li>
       </a>
       <li  class=" ">

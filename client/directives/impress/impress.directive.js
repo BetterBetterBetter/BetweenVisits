@@ -110,7 +110,7 @@
             maxScale: 20,
             minScale: 0,
             perspective: 1000,
-            transitionDuration: 2222
+            transitionDuration: 3333
         };
 
         return {
@@ -139,13 +139,13 @@
                     },
                     stepData = [];
                 $scope.currentSlide = 0;
-                var duration = 2222,
+                var duration = 3333,
                     zoomin = false;
 
                 var rootStyles = {
                     position: 'absolute',
                     transformOrigin: 'top left',
-                    transition: 'transform 1000ms ease-out',
+                    transition: 'transform 3333ms ease-out',
                     transformStyle: 'preserve-3d'
                 };
 

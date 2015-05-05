@@ -1,7 +1,5 @@
 
 body {
-    font-family:'PT Sans', sans-serif;
-    background: rgb(215, 215, 215);
     pointer-events: auto;
     height:100%;
 }
@@ -13,7 +11,45 @@ h1{
 /* #impresshook{
     pointer-events: auto;
 } */
+span.left, span.right{
+		position: fixed;
+		font-size: 11em;
+		cursor: pointer;
+		top: 61.8%;
+		top: 61.8vh;
+		z-index: 99;
+		-webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	    -o-box-sizing: border-box;
+	    box-sizing: border-box;
+		text-shadow: hsla(244, 96%, 77%, .55) 3px 3px 7.77px;
+		transition: text-shadow .333s ease-in .01s;
+		-webkit-transition: text-shadow .333s ease-in .01s;
 
+		@extend .noselect;
+
+		&:hover{
+			text-shadow: hsla(244, 96%, 21%, 1.0) 3px 3px 7.77px;
+		}
+	}
+	span.left{
+		color: #FFF;
+		left: 0%;
+		left: 0vw;
+		-webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+		box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+	}
+	span.right{
+		color: #000;
+		right: 0%;
+		right: 0vw;
+		-webkit-box-shadow: -10px 10px 20px 2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -10px 10px 20px 2px rgba(0,0,0,0.75);
+		box-shadow: -10px 10px 20px 2px rgba(0,0,0,0.75);
+	}
+		
 .step {
 	text-align: center;
     position: relative;
@@ -23,82 +59,80 @@ h1{
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
+
+    &.active{
+	    opacity: 1;
+	    pointer-events:auto;
+	    -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+		box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+	}
 }
+
 .slide {
+	transition: opacity .777s ease-out;
 	-webkit-transition: opacity .777s ease-out;
     display: block;
     background-color: white;
-    color: hsla(156, 98%, 59%, 0.69);
-    opacity: 0.555;
+    color: hsla(156, 98%, 59%, 0.88);
+    opacity: 0.222;
     line-height: 4em;
     pointer-events:none;
     border-radius: 50%;
-}
 
-.slide > * {
-	opacity: 0;
-      -webkit-transition: opacity .777s ease-out;
-}
+	& * {
+		opacity: 0;
+      	transition: opacity .777s ease-out .222s;
+      	-webkit-transition: opacity .777s ease-out .222s;
+      	    -webkit-backface-visibility: hidden; 
+   			backface-visibility: hidden;
+	}
 
-.slide.active > * {
-	opacity: 1;
-      -webkit-transition: opacity .777s ease-in;	
-}
+	&.active{
+		opacity: 1;
+	
+		* {
+			opacity: 1;
+			transition: opacity .777s ease-in .222s;
+    		-webkit-transition: opacity .777s ease-in .222s;	
+		}
 
-.slide.active{
-	opacity: 1;
-}
+		&:before{
+			opacity: 1;
+			-webkit-transition: opacity 7.77s ease 3333ms;
+			transition: opacity 7.77s ease 3333ms;
+			background: #ffffff;
+			background: -moz-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+			background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, hsla(0,0%,100%,1)), color-stop(50%, hsla(52,100%,50%,1)), color-stop(100%, hsla(52,100%,50%,0)));
+			background: -webkit-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+			background: -o-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+			background: -ms-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+			background: radial-gradient(ellipse at center, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffdd00', GradientType=1 );
+			}
+	}
 
-.step.active{
-    opacity: 1;
-    pointer-events:auto;
-    -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
-	-moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
-	box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
-}
+	&:before, &:after {
+	  content: "";
+	  position: absolute;
+	  border-radius: 50%;
 
+	}
+	&:before {
+	  top: -33px;
+	  left: -33px;
+	  right: -33px;
+	  bottom: -33px;
+	  z-index: -2;
+	  opacity: 0;
 
-
-.slide:before, .slide:after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-
-}
-.slide:before {
-  top: -33px;
-  left: -33px;
-  right: -33px;
-  bottom: -33px;
-  z-index: -2;
-  opacity: 0;
-
-}
-
-.active.slide:before{
-
-  opacity: 1;
-
--webkit-transition: opacity 7.77s ease 1s;
-   -webkit-transition-delay: 1s;
-   transition-delay: 1s;
-
-background: #ffffff;
-background: -moz-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, hsla(0,0%,100%,1)), color-stop(50%, hsla(52,100%,50%,1)), color-stop(100%, hsla(52,100%,50%,0)));
-background: -webkit-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
-background: -o-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
-background: -ms-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
-background: radial-gradient(ellipse at center, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffdd00', GradientType=1 );
-
-}
-
-.slide:after {
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
+	}
+	&:after {
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  background: #FFF;
+	  z-index: -1;
+	}
 }
