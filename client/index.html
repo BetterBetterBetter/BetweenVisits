@@ -6,9 +6,12 @@
 
     <title>Between Visits</title>
     <meta name="description" content="We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report.">
-
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+
+    <script src="bower_components/modernizr-dev.js"></script>
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
@@ -35,7 +38,7 @@
 
     <div nav-bar></div> 
 
-    <div ng-view></div>
+    <div ng-view id="view"></div>
 
     <script src="socket.io/socket.io.js"></script>
 
@@ -62,6 +65,7 @@
     <script src="bower_components/pickadate/lib/picker.date.js"></script>
     <script src="bower_components/pickadate/lib/picker.time.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/prefixfree/prefixfree.min.js"></script>
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
     <!-- endinject -->
@@ -87,7 +91,7 @@
 
     <!-- endbuild -->
 
-    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+    <script src="http://localhost:9000/livereload.js?snipver=1"></script>
 
   </body>
 </html>

@@ -1,25 +1,28 @@
 <div>
         <span class="left" ng-click="$emit('previousSlide')">&lt;</span> 
         <span  class="right" ng-click="$emit('nextSlide')">&gt;</span>
-  <div id="impresshook" ng-app="impressjs">
+  <div id="impresshook" ng-app="impressjs" >
+    <div class="no-support-message"> Your browser doesn't support this site fully, consider viewing it in <a href="https://www.google.com/chrome/browser/">Chrome</a>, the web's most popular browser. It only takes a minute to download, works with nearly any computer, and it is likely much faster, promise!</div>
+
     <div class="impress">
         <div id="homeSlide" class=" step slide" data-y="1500">
            <div id="introContainer" >
-              <a ng-click="$emit('previousSlide')">
-                <img id="leftDoor" src="assets/images/white.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a doctor." >
+              <a id="leftDoor" ng-click="$emit('previousSlide')">
+                <img src="assets/images/white.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a doctor." >
               </a>
-              <a ng-click="$emit('nextSlide')">
-                <img id="rightDoor" src="assets/images/black.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a patient.">
+              <a id="rightDoor" ng-click="$emit('nextSlide')">
+                <img src="assets/images/black.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a patient.">
               </a>
             </div>
         </div>
         <div class="step slide" data-z="-2222" data-y="1777">
-            <h1> Here we go, baby </h1>
-            <h2> This is some text </h2>
-            <h1> It is big! </h1>
-            <h3> No biggy, baby, just read and weep. </h3>
+            <h1> Between Visits </h1>
+            <h2> We care about you Between Visits, so you and your Doctor can rest easy! </h2>
+            <h1> This side is still under construction! </h1>
+            <h2> Be sure to check back in a few days! </h2>
+            <h3> We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report. </h3>
         </div>
-
+<!--
         <div class="step slide" 
         ng-repeat="i in [1,2,3,4,5,6,7,8]"
         data-x="{{((i%2)-1) * 800}}"
@@ -29,20 +32,21 @@
         data-rotate-y="{{((i%6)-1) * 40}}"
         data-rotate-z="{{i * -10}}">
             <h1>{{i}}</h1>
-            <p>
-            <button ng-click="$emit('previousSlide')">Previous</button>
-            <button ng-click="$emit('nextSlide')">Next</button>
-            </p>
-            <p>Or Left / Right Arrows</p>
+            <h1> Between Visits </h1>
+            <h2> We care about you Between Visits, so you and your Doctor can rest easy! </h2>
+            <h1> This side is still under construction! </h1>
+            <h2> Be sure to check back in a few days! </h2>
+            <h3> We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report. </h3>
 
         </div>
-
+-->
 
         <div class="step slide" data-z="-5555" data-y="1777">
-            <h1> Here we go, baby </h1>
-            <h2> This is some text </h2>
-            <h1> It is big! </h1>
-            <h3> No biggy, baby, just read and weep. </h3>
+            <h1> Between Visits </h1>
+            <h2> We care about you Between Visits, so you and your Doctor can rest easy! </h2>
+            <h1> This side is still under construction! </h1>
+            <h2> Be sure to check back in a few days! </h2>
+            <h3> We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report. </h3>
         </div>
 
     </div>

@@ -16,7 +16,20 @@ body {
   background-color: $bg;
   z-index: -9;
   overflow: hidden;
+  webkit-overflow-scrolling: touch;
+}
 
+h1{
+  font-size: 5em;
+  color: #DAF333;
+}
+h2{
+  font-size: 2em;
+  color: #333;
+}
+h3{
+  font-size: 1em;
+  color: #000;
 }
 
 div#Title{

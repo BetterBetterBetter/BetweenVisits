@@ -11,12 +11,19 @@ h1{
 /* #impresshook{
     pointer-events: auto;
 } */
+
+.no-support-message { display:none; } 
+.impress-not-supported .no-support-message { display:block; }
+
+//If impress is supported...
+*:not(.impress-not-supported){
+//These spans are the controls located on the extreme right and left
 span.left, span.right{
 		position: fixed;
-		font-size: 11em;
+		font-size: 7.77em;
 		cursor: pointer;
-		top: 61.8%;
-		top: 61.8vh;
+		top: 61.8%; 
+		top: 61.8vh; 
 		z-index: 99;
 		-webkit-box-sizing: border-box;
 	    -moz-box-sizing: border-box;
@@ -49,10 +56,35 @@ span.left, span.right{
 		-moz-box-shadow: -10px 10px 20px 2px rgba(0,0,0,0.75);
 		box-shadow: -10px 10px 20px 2px rgba(0,0,0,0.75);
 	}
+
+///This breaks down the hierarchy of containers to keep 100% body sizing accurrate
+div#view{
+	left: 0%; right: 0%; top:0%; bottom: 0%;
+    height: 100%; width: 100%;
+    div.ng-scope{
+		left: 0%; right: 0%; top:0%; bottom: 0%;
+	    height: 100%; width: 100%;
+	    div#impresshook{
+	    	left: 0%; right: 0%; top:0%; bottom: 0%;
+	    	height: 100%; width: 100%;
+	        div.impress{
+	    		left: 0%; right: 0%; top:0%; bottom: 0%;
+	    		height: 100%; width: 100%;
+	    		div.step > div{
+	    			left: 0%; right: 0%; top:0%; bottom: 0%;
+	    			height: 100%; width: 100%;
+	    		}
+	    	}
+		}
+	}
+}
 		
 .step {
 	text-align: center;
-    position: relative;
+    position: absolute;
+    left: 0%; right: 0%; top:0%; bottom: 0%;
+    height: 125%; width: 125%;
+    overflow: visible;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -70,8 +102,8 @@ span.left, span.right{
 }
 
 .slide {
-	transition: opacity .777s ease-out;
-	-webkit-transition: opacity .777s ease-out;
+	transition: opacity .777s ease;
+	-webkit-transition: opacity .777s ease;
     display: block;
     background-color: white;
     color: hsla(156, 98%, 59%, 0.88);
@@ -79,28 +111,38 @@ span.left, span.right{
     line-height: 4em;
     pointer-events:none;
     border-radius: 50%;
+    padding-left: 15%;
+    padding-right: 15%;
 
-	& * {
+	img, h1, h2, h3, h4, h5 {
 		opacity: 0;
-      	transition: opacity .777s ease-out .222s;
-      	-webkit-transition: opacity .777s ease-out .222s;
-      	    -webkit-backface-visibility: hidden; 
-   			backface-visibility: hidden;
+      	transition: opacity 777ms ease;
+      	-webkit-transition: opacity .777s ease;
+      	-moz-transition: opacity .777s ease;
+      	-moz-backface-visibility: hidden;
+      	-webkit-backface-visibility: hidden; 
+   		backface-visibility: hidden;
 	}
 
 	&.active{
+		z-index: 999;
 		opacity: 1;
 	
-		* {
+		img, h1, h2, h3, h4, h5 {
+			-webkit-transition-delay: 3.33s;
+    		transition-delay: 3.33s;
+    		transform-style: flat;
 			opacity: 1;
-			transition: opacity .777s ease-in .222s;
-    		-webkit-transition: opacity .777s ease-in .222s;	
 		}
 
 		&:before{
 			opacity: 1;
-			-webkit-transition: opacity 7.77s ease 3333ms;
-			transition: opacity 7.77s ease 3333ms;
+			
+			transition: opacity 7.77s ease;
+      		-webkit-transition: opacity 7.77s ease;
+			-webkit-transition-delay: 3.33s;
+    		transition-delay: 3.33s;
+
 			background: #ffffff;
 			background: -moz-radial-gradient(center, ellipse cover, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
 			background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, hsla(0,0%,100%,1)), color-stop(50%, hsla(52,100%,50%,1)), color-stop(100%, hsla(52,100%,50%,0)));
@@ -110,24 +152,37 @@ span.left, span.right{
 			background: radial-gradient(ellipse at center, hsla(0,0%,100%,1) 0%, hsla(52,100%,50%,1) 50%, hsla(52,100%,50%,0) 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffdd00', GradientType=1 );
 			}
+
+		&:after{
+		opacity: 1;
+
+		transition: opacity 0s 0s;
+    	-webkit-transition: opacity 0s 0s;
+		}
+
 	}
 
 	&:before, &:after {
 	  content: "";
 	  position: absolute;
 	  border-radius: 50%;
-
+	  transition: opacity 0s 0s;
+    	-webkit-transition: opacity 0s 0s;
 	}
 	&:before {
 	  top: -33px;
 	  left: -33px;
 	  right: -33px;
 	  bottom: -33px;
-	  z-index: -2;
+	  z-index: -9;
 	  opacity: 0;
+	  -webkit-transition-delay: 0s;
+      transition-delay: 0s;
 
 	}
 	&:after {
+
+		opacity: 1;
 	  top: 0;
 	  left: 0;
 	  bottom: 0;
@@ -135,4 +190,7 @@ span.left, span.right{
 	  background: #FFF;
 	  z-index: -1;
 	}
+}
+
+//end of impress support styles
 }

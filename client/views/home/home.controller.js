@@ -11,12 +11,16 @@ angular.module('betweenVisits')
       $("#introContainer").css( "opacity", "0" );
   },1);
 
+if ( $( 'html' ).hasClass(".no-svg") || $( 'html' ).hasClass(".no-svgfilter") ){
+  $("img#leftDoor").attr("src", "assets/images/white.png");
+  $("img#rightDoor").attr("src", "assets/images/black.png");
+}
 
 resizeDiv();
 
 var $INTROimg = $("#introContainer");
-var $LEFTdoor = $("#leftDoor");
-var $RIGHTdoor = $("#rightDoor");
+var $LEFTdoor = $("#leftDoor>img");
+var $RIGHTdoor = $("#rightDoor>img");
 var $BODY = $("body");
         
 function resizeDiv() 
@@ -29,36 +33,35 @@ function resizeDiv()
 
 
       var $INTROimg = $("#introContainer");
-      var $LEFTdoor = $("#leftDoor");
-      var imgContH = $($INTROimg).height();
-      var imgH = $($LEFTdoor).height();
-      var imgContW = $($INTROimg).width();
-      var imgW = $($LEFTdoor).width();
-
-
-
-      if (asp < 1.13) {
+      if (asp < .799 ) {
         $( $INTROimg )
-          .find('*')
-          .css('height', imgContH);        
+          .find('img')
+          .css('width', 'auto')
+          .css('height', '100%');        
       } else {
         $( $INTROimg )
-          .find('*')
-          .css('height', imgContH*2.1 - imgContH*asp );
+          .find('img')
+          .css('height', 'auto')
+          .css('width', '49.9%');
       }
-      
+      /*
       var $BODY = $("body");
       var bodyH = $($BODY).height();
       var bodyW = $($BODY).width();
 
     //impress.js slides
     var $slides = $(' .slide ');
-      var slideH = bodyH;
-      var slideW = bodyW ;
-    $( $slides )
-        .css("height", slideH)
-        .css("width", slideW);
-
+    if (asp > 1.13) {
+        var slideH = bodyH * asp;
+        var slideW = bodyW;    
+      } else {
+        var slideH = bodyH * 1.8 - bodyH * asp;
+        var slideW = bodyW * 1.8 - bodyW * asp;
+      }
+    //$( $slides )
+    //  .css("height", slideH)
+    //  .css("width", slideW);
+  */
 }
 
 
@@ -87,7 +90,7 @@ $("#introContainer").imagesLoaded()
 
 //body hover
 function lux (event) {
-  if( $( $LEFTdoor ).hasClass("clicked") === false && $( $RIGHTdoor ).hasClass("clicked") === false )  {
+  if( $( $LEFTdoor ).hasClass("clicked") === false && $( $RIGHTdoor ).hasClass("clicked") === false )  {  
     $( $BODY )
     .velocity('stop')
     .velocity({
