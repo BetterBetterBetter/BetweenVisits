@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('betweenVisits', [
+  'angular-loading-bar',
   'ngRoute',
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngAnimate',
   'btford.socket-io',
-  'impress'
+  'impress',
+  'angular.screenmatch'
 ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider, screenmatchConfigProvider) {
 
     $routeProvider
       .otherwise({
@@ -18,6 +20,14 @@ angular.module('betweenVisits', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
+    screenmatchConfigProvider.config.rules = {
+      lg: '(min-width: 1200px)',
+      md: '(min-width: 992px) and (max-width: 1199px)',
+      sm: '(min-width: 768px) and (max-width: 991px)',
+      xs: '(max-width: 767px)', 
+      xxs: '(max-width: 555px), (max-height:333px)'
+     };
 
   })
   .factory('authInterceptor',

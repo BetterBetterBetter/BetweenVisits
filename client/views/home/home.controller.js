@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('betweenVisits')
-  .controller('HomeCtrl', function ($timeout) {
+  .controller('HomeCtrl', function ($timeout, screenmatch) {
 
     var vm = this;
 
@@ -17,6 +17,7 @@ if ( $( 'html' ).hasClass(".no-svg") || $( 'html' ).hasClass(".no-svgfilter") ){
 }
 
 resizeDiv();
+resizeText();
 
 var $INTROimg = $("#introContainer");
 var $LEFTdoor = $("#leftDoor>img");
@@ -33,7 +34,7 @@ function resizeDiv()
 
 
       var $INTROimg = $("#introContainer");
-      if (asp < .799 ) {
+      if (asp < .999 ) {
         $( $INTROimg )
           .find('img')
           .css('width', 'auto')
@@ -44,30 +45,51 @@ function resizeDiv()
           .css('height', 'auto')
           .css('width', '49.9%');
       }
-      /*
-      var $BODY = $("body");
-      var bodyH = $($BODY).height();
-      var bodyW = $($BODY).width();
-
-    //impress.js slides
-    var $slides = $(' .slide ');
-    if (asp > 1.13) {
-        var slideH = bodyH * asp;
-        var slideW = bodyW;    
-      } else {
-        var slideH = bodyH * 1.8 - bodyH * asp;
-        var slideW = bodyW * 1.8 - bodyW * asp;
-      }
-    //$( $slides )
-    //  .css("height", slideH)
-    //  .css("width", slideW);
-  */
 }
 
 
+//hide Impress for xs device
+screenmatch.when('xxs', function () {
+    
+  $("#impresshook")
+    .css('display', 'none');
+
+    }, function () {
+    
+  $("#impresshook")
+    .css('display', 'block');
+
+});
+
+function resizeText(lastChange){
+  var $slideCont = $('.slideCont');
+  if ($('#impresshook').css('display') === 'block') { 
+    if ( $($slideCont).prop('scrollHeight') > $($slideCont).parent().height() ) {
+        var slideFontSize = parseInt($($slideCont).css('font-size'));
+        $($slideCont).css('font-size', slideFontSize - .1);
+        if (lastChange !== 'bigger') {
+          $timeout(function(){
+            resizeText('smaller');
+          }, 1);
+        }
+    } else if ( $($slideCont).height() < $($slideCont).parent().height() ) {
+        var slideFontSize = parseInt($($slideCont).css('font-size'));
+        $($slideCont).css('font-size', slideFontSize + 1);
+        if (lastChange !== 'smaller') {
+          $timeout(function(){
+            resizeText('bigger');
+          }, 1);
+        }
+    }
+  }
+}
+
 
 window.onresize = function(event) {
-resizeDiv();
+  resizeDiv();
+  if ($('#impresshook').css('display') === 'block') { 
+    resizeText();
+  }
 };
 
 window.addEventListener('resize', resizeDiv);
