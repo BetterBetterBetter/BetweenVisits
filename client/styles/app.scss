@@ -12,16 +12,22 @@ body { -webkit-animation: bugfix infinite 1s; }
 $bg: #DAF3F9;
 
 body {
-  font-family: 'Amethysta', serif;
+  font-family: 'Stoke', serif;
   background-color: $bg;
   z-index: -9;
   overflow: hidden;
   webkit-overflow-scrolling: touch;
 }
 
+#Title{
+  color: navy;
+  font-family: 'Della Respira', serif;
+}
+
 h1{
+  font-family: 'Della Respira', serif;
   font-size: 8em;
-  color: #DAF333;
+  color: hsla(91, 100%, 46%, 1.0);
 }
 h2{
   font-size: 5em;

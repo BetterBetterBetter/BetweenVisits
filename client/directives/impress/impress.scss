@@ -4,10 +4,6 @@ body {
     height:100%;
 }
 
-h1{
-    font-size: 3em;
-}
-
 /* #impresshook{
     pointer-events: auto;
 } */
@@ -99,7 +95,6 @@ div#view{
     box-sizing: border-box;
 
     &.active{
-	    opacity: 1;
 	    pointer-events:auto;
 	    -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
 		-moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
@@ -121,9 +116,12 @@ div#view{
     padding-right: 8.12%;
     padding-bottom: 3.33%;
 
-	img, h1, h2, h3, h4, h5 {
+	img, h1, h2, h3, h4, h5, div.bubble {
 		opacity: 0;
-      	transition: opacity 777ms ease;
+		visibility: hidden;
+		@extend animated;
+		@extend fadeOut;
+		transition: opacity 777ms ease;
       	-webkit-transition: opacity .777s ease;
       	-moz-transition: opacity .777s ease;
       	-moz-backface-visibility: hidden;
@@ -140,7 +138,10 @@ div#view{
 		z-index: 999;
 		opacity: 1;
 	
-		img, h1, h2, h3, h4, h5 {
+		img, h1, h2, h3, h4, h5, div.bubble {
+			@extend animated;
+			@extend fadeIn;
+			visibility: visible;
 			-webkit-transition-delay: 3.33s;
     		transition-delay: 3.33s;
     		transform-style: flat;

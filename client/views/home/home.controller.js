@@ -45,6 +45,11 @@ function resizeDiv()
           .css('height', 'auto')
           .css('width', '49.9%');
       }
+
+      var $slides = $('.slide');
+      var adjustedFontSize = area * .00001 + 7.77;
+      $($slides)
+        .css('font-size', adjustedFontSize);
 }
 
 
@@ -63,7 +68,7 @@ screenmatch.when('xxs', function () {
 
 function resizeText(lastChange){
   var $slideCont = $('.slideCont');
-  if ($('#impresshook').css('display') === 'block') { 
+  if ( $('#impresshook').css('display') === 'block') { 
     if ( $($slideCont).prop('scrollHeight') > $($slideCont).parent().height() ) {
         var slideFontSize = parseInt($($slideCont).css('font-size'));
         $($slideCont).css('font-size', slideFontSize - .1);
@@ -98,12 +103,17 @@ window.addEventListener('resize', resizeDiv);
 $("#introContainer").imagesLoaded()
   .always( function( instance ) {
     resizeDiv();
-    $("#introContainer").velocity("transition.fadeIn", 1111);
+    //queue first slide animations
+    $("#introContainer").addClass("fadeIn");
+     $('#weCare').addClass('rollIn');
+      $('#BV').addClass('lightSpeedIn');
+      $('#soYou').addClass('rollIn');
+      $('#drInfo').addClass('fadeInUpBig');
+      $('#ptInfo').addClass('fadeInUpBig');
     $timeout(function(){
       $("#introContainer").css( "opacity", "" );
     }, 1112);
   });
-
 
 // This is a hover event for the background //
  $( $LEFTdoor ).hoverIntent( luxFit, lux );
@@ -134,7 +144,7 @@ function lux (event) {
             scale: 1}, 
         o: {duration: 1111, queue: false}
         });
-  }
+    }
 }
 
 //RightDoor hover
@@ -243,6 +253,32 @@ function luxFit (event) {
     }, 778);
  }
 
+  navigatorAnimation();
+  function navigatorAnimation() {
+    $timeout(function(){
+      $('.navigationArrows').addClass('rubberBand');
+      $timeout(function(){
+        $('.navigationArrows').removeClass('rubberBand');
+      }, 3333);
+      navigatorAnimation();
+    }, 40000);
+  }
+
+  $('#homeSlide:after').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', homeSlide());
+  function homeSlide() {
+    /*
+    $timeout(function(){
+      $('#weCare').addClass('rollIn');
+      $('#BV').addClass('rollIn');
+      $('#soYou').addClass('rollIn');
+      $('#drInfo').addClass('rollIn');
+      $('#ptInfo').addClass('rollIn');
+      $('.homeSlide').pep(); 
+    }, 2222);
+    console.log('this is fired!');
+    */
+
+  }
 
 
 

@@ -1,5 +1,8 @@
+$bg: #DAF3F9;
+
 
 div#introContainer{
+  visibility: hidden;
   text-align: center;
   position: relative;
   width: 100%;
@@ -33,7 +36,7 @@ div#introContainer{
     }
     &>img{
       position: absolute;
-      z-index: 999 ;
+      z-index: 9 ;
       top: 0%; bottom: 0%;
       height: 100%; width: 100%;
     }
@@ -46,16 +49,72 @@ div#introContainer{
   @extend .twoAndHalf;
 }
 
-.one, .two, .three, .four{
-
+.homeSlide{
+  
 }
 
+.bubble{
+  visibility: hidden;
+  position: absolute;
+  z-index: 9 ;
+  font-size: 2em;
+  height: 17%;
+  width: 20%;
+  text-align: center;
+  padding: 3% 3% 3% 3%;
+  color: hsla(279, 96%, 11%, 1.0);
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 
-.one{}
 
-.two{}
+    @extend .noselect;
+}
 
-.three{}
-
-.foure{}
-
+#weCare{
+  font-size: 3em;
+  left: 0%;
+  top: 25%;
+  height: 33%;
+  animation-delay: 5s;
+  animation-duration: 2s;
+}
+#BV{
+  font-size: 4em;
+  font-family: 'Della Respira', serif;
+  color: maroon;
+  height: 22%; width: 40%;
+  padding-top: 3%;
+  left: 30%; right: 50%;
+  top: 0%;
+  animation-delay: 7s;
+  animation-duration: 2s;
+  text-decoration: bold;
+      -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
+}
+#soYou{
+  color: fuchsia;
+  right: 0%;
+  top: 25%;
+  height: 33%;
+  animation-delay: 9s;
+}
+#drInfo{
+  color: black;
+  left: 20%;
+  bottom: 10%;
+  height: 13%; width: 30%;
+  animation-delay: 11s;
+}
+#ptInfo{
+  color: #DDDEEE;
+  right: 20%;
+  bottom: 10%;
+  height: 13%; width: 30%;
+  animation-delay: 11s;
+}
