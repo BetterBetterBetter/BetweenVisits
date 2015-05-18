@@ -112,11 +112,8 @@ div#view{
     line-height: 4em;
     pointer-events:none;
     border-radius: 50%;
-    padding-left: 8.12%;
-    padding-right: 8.12%;
-    padding-bottom: 3.33%;
 
-	img, h1, h2, h3, h4, h5, div.bubble {
+	img, h1, h2, h3, h4, h5, p, input, div.bubble {
 		opacity: 0;
 		visibility: hidden;
 		@extend animated;
@@ -132,13 +129,16 @@ div#view{
 	.slideCont{ 
 		display: inline-block;
 		height: auto;
+		padding: 4%;
+		margin-left: -4%;
+		margin-top: -5%;
 	}
 
 	&.active{
 		z-index: 999;
 		opacity: 1;
 	
-		img, h1, h2, h3, h4, h5, div.bubble {
+		img, h1, h2, h3, h4, h5, p, input, div.bubble {
 			@extend animated;
 			@extend fadeIn;
 			visibility: visible;

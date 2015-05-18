@@ -1,7 +1,7 @@
 $bg: #DAF3F9;
 
 
-div#introContainer{
+div.introContainer{
   visibility: hidden;
   text-align: center;
   position: relative;
@@ -20,14 +20,14 @@ div#introContainer{
     letter-spacing: -18px;
     width: 49.99%;
 
-    &#leftDoor{
+    &.leftDoor{
       left: 0%;
       &>img{
         transform-origin: left 100% 0;
         right: 0%;
       }
     }
-    &#rightDoor{
+    &.rightDoor{
       right: 0%;
       &>img{
         left: 0%;
@@ -69,12 +69,12 @@ div#introContainer{
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-
+      text-shadow: 3px 3px #FFF, -3px -3px #FFF, 3px -3px #FFF, -3px 3px #FFF;  
 
     @extend .noselect;
 }
 
-#weCare{
+.weCare{
   font-size: 3em;
   left: 0%;
   top: 25%;
@@ -82,10 +82,10 @@ div#introContainer{
   animation-delay: 5s;
   animation-duration: 2s;
 }
-#BV{
+.BV{
   font-size: 4em;
   font-family: 'Della Respira', serif;
-  color: maroon;
+  color: #000;
   height: 22%; width: 40%;
   padding-top: 3%;
   left: 30%; right: 50%;
@@ -93,27 +93,29 @@ div#introContainer{
   animation-delay: 7s;
   animation-duration: 2s;
   text-decoration: bold;
+  text-shadow: 3px 3px #FFF, -3px -3px #FFF, 3px -3px #FFF, -3px 3px #FFF;  
       -webkit-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.75);
 }
-#soYou{
-  color: fuchsia;
+.soYou{
   right: 0%;
   top: 25%;
   height: 33%;
   animation-delay: 9s;
 }
-#drInfo{
-  color: black;
+.drInfo{
+  color: #000;
+  text-shadow: 3px 3px #FFF, -3px -3px #FFF, 3px -3px #FFF, -3px 3px #FFF;  
+  right: 20%;
   left: 20%;
   bottom: 10%;
   height: 13%; width: 30%;
   animation-delay: 11s;
 }
-#ptInfo{
-  color: #DDDEEE;
-  right: 20%;
+.ptInfo{
+  color: #FFF;
+  text-shadow: 3px 3px #000, -3px -3px #000, 3px -3px #000, -3px 3px #000;  right: 20%;
   bottom: 10%;
   height: 13%; width: 30%;
   animation-delay: 11s;

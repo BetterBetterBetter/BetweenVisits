@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('betweenVisits')
-  .directive('d3', function () {
+angular.module('betweenVisits.directives', ['d3'])
+  .directive('barChart', ['d3Service', function(d3Service) {
     return {
-      restrict: 'EA',
-      link: function (scope, element) {
-        element.text('d3 directive');
-      }
-    };
-  });
+      link: function(scope, element, attrs) {
+        d3Service.d3().then(function(d3) {
+          // d3 is the raw d3 object
+        });
+      }}
+  }]);

@@ -6,19 +6,19 @@
 
     <div class="impress">
         <div id="homeSlide" class=" step slide" data-y="1500">
-           <div id="introContainer" class="animated">
-              <a id="leftDoor" ng-click="$emit('previousSlide')">
+           <div class="animated introContainer">
+              <a id="" class="leftDoor" ng-click="$emit('previousSlide')">
                 <img class="" src="assets/images/white.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a doctor." >
               </a>
-              <a id="rightDoor" ng-click="$emit('nextSlide')">
+              <a id="" class="rightDoor" ng-click="$emit('nextSlide')">
                 <img  class="" src="assets/images/black.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a patient.">
               </a>
             </div>
-            <div id="weCare" class="bubble animated rollIn homeSlide">We care about you...</div>
-            <div id="BV" class="bubble animated lightSpeedIn homeSlide">Between Visits</div>
-            <div id="soYou" class="bubble animated rollIn homeSlide">So you and your Doc can rest easy.</div>
-            <div id="drInfo" class="bubble animated fadeInUpBig homeSlide">Dr's Info</div>
-            <div id="ptInfo" class="bubble animated fadeInUpBig homeSlide">Pt's Info</div>
+            <div id="" class="weCare bubble animated rollIn homeSlide">We care about you...</div>
+            <div id="" class="BV bubble animated lightSpeedIn homeSlide">Between Visits</div>
+            <div id="" class="soYou bubble animated rollIn homeSlide">So you and your Doc can rest easy.</div>
+            <div id="" class="drInfo bubble animated fadeInUpBig homeSlide">Doctor's Info</div>
+            <div id="" class="ptInfo bubble animated fadeInUpBig homeSlide">Patient's Info</div>
         </div>
         <div class="step slide"  data-z="-2222" data-y="1777">
           <div class="slideCont">
@@ -30,9 +30,124 @@
         </div>
         <div class="step slide"  data-z="-3333" data-x="-2222">
           <div class="slideCont">
-            <h1>There's a lot of information out there...</h1>
-            
-            <h1 >...and we handle it all</h1>
+            <h2>There's a lot of information out there...</h2>
+            <PtGraphic></PtGraphic>
+            <h2 >...and we handle it all!</h2>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-4444" data-y="2222" data-x="-2222">
+          <div class="slideCont">
+            <h1>Specifically,</h1>
+            <h2>we provide five main services:</h2>
+            <h3><ol style="margin-left: 10%">
+              <li>Interfacing with your Electronic Health Record,</li>
+              <li>Developing a Personalized Care Plan,</li>
+              <li>Ensuring Access to the Care you need,</li>
+              <li>Facillitating transitions to new Services,</li>
+              <li>and coordinating care between Providers.</li>
+            </ol></h3>
+            <h1>Best of all, we get to talk to you!</h1>
+            <h2><b>24/7</b>, we're here for your health.</h2>
+            <h3>In fact, with anonymized data, we play a big part <br>in population health as well!</h3>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-5555" data-y="-2222" data-x="2222">
+          <div class="slideCont">
+            <h3  style="color: #AAA">So, that's a lot of value....</h3>
+            <h1>Right!</h1>
+            <h2>And it acutally saves money!</h2>
+            <h4>Since out patients are healthier, they end up with fewer overal medical expenses according to studies &amp; testimonials.</h4>
+            <h5>While the raw cost is as low as forty dollars per month, Medicare Advantage will pay all of it but a small co-pay (if even that!).</h5>
+            <h4>Right now, Medicare supports our service if you have 2 or more chronic conditions, <br>though other insurance may cover us even is the government does not!</h4>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-6666" data-y="-999" data-x="-333">
+          <div class="slideCont">
+            <h1>Now's the time!</h1>
+            <h3>...to leverage technology for you own health!</h3>
+            <h2>Leave some information and we will contact your doctor on your behalf.</h2>
+            <h3>Your name</h3><input type="text"></input>
+            <h3>Your email</h3><input type="text"></input>
+            <h3>Your Doctor's name</h3><input type="text"></input>
+            <h3>Anything specific? Let us know your needs.</h3><input type="text"></input>
+            <h4>Continue onward to read about how we work with your doctors...</h4>
+          </div>
+        </div>
+        <div id="homeSlide" class=" step slide" data-z="-7777" data-y="1500">
+           <div class="animated introContainer">
+              <a id="" class="leftDoor" ng-click="$emit('previousSlide')">
+                <img class="" src="assets/images/white.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a doctor." >
+              </a>
+              <a id="" class="rightDoor" ng-click="$emit('nextSlide')">
+                <img  class="" src="assets/images/black.svg" alt="We help you in-between your doctor and your home. Choose this path to seek information as a patient.">
+              </a>
+            </div>
+            <div id="" class="weCare bubble animated rollIn homeSlide">We care about you...</div>
+            <div id="" class="BV bubble animated lightSpeedIn homeSlide">Between Visits</div>
+            <div id="" class="soYou bubble animated rollIn homeSlide">So you and your Doc can rest easy.</div>
+            <div id="" class="drInfo bubble animated fadeInUpBig homeSlide">Doctor's Info</div>
+            <div id="" class="ptInfo bubble animated fadeInUpBig homeSlide">Patient's Info</div>
+        </div>
+        <div class="step slide"  data-z="-6666" data-y="-333" data-x="999">
+          <div class="slideCont">
+            <h1>Want more information?<h1>
+            <h2>&iquest;Have Any questions?</h2>
+            <h3>Leave some information here and we will contact your whenever you'd like.</h3>
+            <div pickadate ng-model="date"></div>
+            <div id="drInput">
+              <h3>Your name</h3><input type="text"></input>
+              <h3>Your email</h3><input type="text"></input>
+              <h3>What do you want to talk about?</h3><input type="text"></input>
+              <h5>We love to do our homework first!</h5>
+            </div>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-5555" data-y="2222" data-x="-2222">
+          <div class="slideCont">
+            <h1>Keep your time<h1>
+            <h2>with your patients, we'll do the rest.</h2>
+            <h3>We will monitor all of the following in our care plan, giving you the perfect synopsis.</h3>
+            <DrGraphic></DrGraphic>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-4444" data-y="-2222" data-x="2222">
+          <div class="slideCont">
+            <h1>Like what you see?<h1>
+            <h2>Let's see exactly what CCM entails:</h2>
+            <h3>To bill for CCM, one must provide five main services:</h3>
+            <h3><ol style="margin-left: 10%">
+              <li>Interfacing with Electronic Health Record,</li>
+              <li>Developing a Personalized Care Plan,</li>
+              <li>Ensuring 24/7 access for any patient questions,</li>
+              <li>Facillitating transitions to new Services,</li>
+              <li>and coordinating care between Providers.</li>
+            </ol></h3>
+            <h2>By allowing us to do this business</h2>
+            <h4>we will compile a customizable synopsis <br>
+            on the level of patient, practice, and population.</h4>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-3333" data-x="-2222">
+          <div class="slideCont">
+            <h1>Calculate</h1>
+            <h4>your potential revenue from CCM</h4>
+            <h4>
+              <span>Total Pts<input type="text"></input> X </span>
+              <span>% on Medicare<input type="text"></input> X </span>
+              <span>% <span style="text-decoration: overline">c</span> 2 &ge; Chronic Conditions<input type="text"></input> X </span>
+              <span> = Estimated Annual Revenue<input type="text"></input></span>
+            </h4>
+            <h5>* mutually exclusive billing <span style="text-decoration: overline">c</span> some ESRD codes, Hospice Care, and Transition Care</h5>
+          </div>
+        </div>
+        <div class="step slide"  data-z="-2222" data-y="-2222">
+          <div class="slideCont">
+            <h1>Since January 1st, 2015,<h1>
+            <h2>CPT 99490 allows one to bill for</h2>
+            <h1>Chronic Care Management (CCM).</h1>
+            <h2>In other words,</h2>
+            <h4>If you (or our professional CCM service) spend more than 20 minutes per month,<br> explicitly sign up a Pt for a CCM subscription, and deliver the five capabilities of CCM, <br>then Medicare will reimburse about $40 per Pt per month.</h4>
+            <h3>Let's estimate how much your practice could generate from CCM...</h3> 
           </div>
         </div>
 <!--
@@ -54,13 +169,17 @@
         </div>
 -->
 
-        <div class="step slide" data-z="-5555" data-y="1777">
+        <div class="step slide" data-z="-8888" data-y="1777">
           <div class="slideCont">
-            <h1>Between Visits 2</h1>
-            <h2> We care about you Between Visits, so you and your Doctor can rest easy! </h2>
-            <h1> This side is still under construction! </h1>
-            <h2> Be sure to check back in a few days! </h2>
-            <h3> We are a medical information company that specializes in CCM. As experts of our field, we improve patient and physician outcomes through integrating diverse information into a succinct report. </h3>
+            <h1>Ever feel as though...</h1>
+            <h3>...you'd like to spend more time with patients?</h3>
+            <h3>...you'd like to more easily visulaize your outcomes?</h3>
+            <h3>...you'd like to be reimbursed for these critical activities?</h3>
+            <h3>...you'd like a professional service to monitor course</h3>
+            <h1>Between Visits?</h1>
+            <h3>Well, now you can!</h3>
+            <h4>Our company allows you to benefit from recent changes in insurance 
+            <br>that allow physicians to bill for "Chronic Care Management".</h4>
           </div>
         </div>
 

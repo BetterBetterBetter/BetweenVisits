@@ -9,7 +9,9 @@ angular.module('betweenVisits', [
   'ngAnimate',
   'btford.socket-io',
   'impress',
-  'angular.screenmatch'
+  'angular.screenmatch',
+  'd3',
+  'pickadate'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider, screenmatchConfigProvider) {
 
