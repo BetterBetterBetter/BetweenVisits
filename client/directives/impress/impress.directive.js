@@ -145,18 +145,20 @@
                 var rootStyles = {
                     position: 'absolute',
                     transformOrigin: 'top left',
-                    transition: 'transform 3333ms cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                    transition: 'transform 3333ms ',
                     transformStyle: 'preserve-3d'
                 };
+                //cubic-bezier(0.175, 0.885, 0.320, 1.275)
 
                 if (!Modernizr.testAllProps('transformStyle', 'preserve-3d')){
                     var rootStyles ={ 
                         position: 'absolute',
                         transformOrigin: 'top left',
-                        transition: 'transform 3333ms cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                        transition: 'transform 3333ms ',
                         transformStyle: 'flat' }
                 }
 
+                //cubic-bezier(0.175, 0.885, 0.320, 1.275)
 
                 var rootData = $element[0].dataset;
                 var config = {

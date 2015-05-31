@@ -21,6 +21,7 @@ span.left, span.right{
 		top: 61.8%; 
 		top: 61.8vh; 
 		z-index: 99;
+		line-height: 2.22em;
 		-webkit-box-sizing: border-box;
 	    -moz-box-sizing: border-box;
 	    -ms-box-sizing: border-box;
@@ -71,8 +72,9 @@ div#view{
 	    			height: 115%; width: 115%;
 	    			div.slideCont {
 		    			left: 0%; right: 0%; top:0%; bottom: 0%;
-		    			height: auto; width: 100%;
-		    		}
+		    			width: 100%; height: auto;
+		    			min-height: 1px;
+		    			position: relative;		    		}
 	    		}
 	    	}
 		}
@@ -107,13 +109,12 @@ div#view{
 	-webkit-transition: opacity .777s ease;
     display: block;
     background-color: white;
-    color: hsla(156, 98%, 59%, 0.88);
     opacity: 0.222;
-    line-height: 4em;
+    line-height: 5em;
     pointer-events:none;
     border-radius: 50%;
 
-	img, h1, h2, h3, h4, h5, p, input, div.bubble {
+	img, h1, h2, h3, h4, h5, p, input, div, li, svg, * {
 		opacity: 0;
 		visibility: hidden;
 		@extend animated;
@@ -138,7 +139,7 @@ div#view{
 		z-index: 999;
 		opacity: 1;
 	
-		img, h1, h2, h3, h4, h5, p, input, div.bubble {
+		img, h1, h2, h3, h4, h5, p, input, div, li, svg, * {
 			@extend animated;
 			@extend fadeIn;
 			visibility: visible;
@@ -207,3 +208,4 @@ div#view{
 
 //end of impress support styles
 }
+

@@ -11,7 +11,9 @@ angular.module('betweenVisits', [
   'impress',
   'angular.screenmatch',
   'd3',
-  'pickadate'
+  'pickadate',
+  'ngFitText',
+  'ng-fi-text'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider, screenmatchConfigProvider) {
 
