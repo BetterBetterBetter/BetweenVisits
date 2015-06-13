@@ -8,11 +8,11 @@
 }
 
 .node--leaf {
-  fill: white;
+  fill: rgba(102, 153, 255, .777);
 }
 
 .label {
-  font: 11px "Stoke", Helvetica, Arial, sans-serif;
+  font: .6em 'Stoke', Helvetica, Arial, sans-serif;
   text-anchor: middle;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 }
@@ -21,4 +21,39 @@
 .node--root,
 .node--leaf {
   pointer-events: none;
+}
+
+
+
+
+
+.node circle {
+  cursor: pointer;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: .4em Stoke;
+  pointer-events: none;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+
+}
+
+line.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+#ptGraphic svg{
+  border: 5px outset rgba(188,188,188,.55);
+  border-radius: 50%;
+}
+
+#drGraphic svg{
+  border: 5px inset rgba(188,188,188,.55);
+  border-radius: 50%;
+  margin-top: -5%;
 }
